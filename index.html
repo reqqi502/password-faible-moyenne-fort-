@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title> validation password </title>
+	<link rel="stylesheet"href="style.css">
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <style>
+        
+    </style>
+
+</head>
+<body>
+
+   <center id="center">
+<h2 class="abd">validation password</h2>
+     Name  :  <input type="text" id="nom"><br><br>
+     Enter password  :  <input type="text" id="pass"><br><br>
+     New password  :  <input type="text" id="Cpass"><br><br>
+<p id="resultat" ></p>
+   
+    </center>
+
+	<script>
+        $(document).ready(function(){
+        $('#pass').keyup(function(){
+            var motpass=$('#pass').val();
+            var nom=$('#nom').val();
+            var comfirm=$('#Cpass').val();
+            let RegxPass="^(?=.*[0-9])(?=.*[!@#$%^&.*])[a-zA-Z0-9!@#$%^&.*]{8,15}$";
+            let RegxPassM="^(?=.*[0-9])[a-zA-Z0-9]{8,15}$";
+             if(motpass.match(RegxPass)){
+             $('#resultat').css({
+                 'width':'300px',
+                 'heigth':'300px',
+                 'background':'green'
+             }).text('fort');
+              } 
+
+               else if(motpass.match(RegxPassM)){
+              $('#resultat').css({
+                 'width':'300px',
+                 'heigth':'300px',
+                 'background':'orange'
+             }).text('moyen');
+              } 
+               else  {
+                $('#resultat').css({
+                 'width':'300px',
+                 'heigth':'300px',
+                 'background':'red'
+             }).text('faible');
+            }
+            })
+    });
+
+
+		
+    </script>
+   
+
+</body>
+</html>
